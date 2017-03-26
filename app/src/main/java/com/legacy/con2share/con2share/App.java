@@ -28,7 +28,7 @@ public class App extends Application {
 
         appComponent = DaggerAppComponent.builder()
                 .appModule(new AppModule(this))
-                .preferenceModule(new PreferenceModule())
+                .preferenceModule(new PreferenceModule(this))
                 .build();
     }
 }

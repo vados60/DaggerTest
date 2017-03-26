@@ -1,5 +1,6 @@
 package com.legacy.con2share.con2share.injections;
 
+import com.legacy.con2share.con2share.ListActivity;
 import com.legacy.con2share.con2share.MainActivity;
 
 import javax.inject.Singleton;
@@ -13,4 +14,5 @@ import dagger.Component;
 @Singleton
 public interface AppComponent {
     void inject(MainActivity mainActivity);
+    void inject(ListActivity listActivity);
 }

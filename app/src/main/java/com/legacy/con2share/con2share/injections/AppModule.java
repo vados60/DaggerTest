@@ -3,6 +3,8 @@ package com.legacy.con2share.con2share.injections;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.legacy.con2share.con2share.injections.annotation.ApplicationContext;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -23,9 +25,9 @@ public class AppModule {
 
     @Provides
     @Singleton
+    @ApplicationContext
     Context provideContext(){
         return appCont;
     }
-
 
 }

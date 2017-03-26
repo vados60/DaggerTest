@@ -1,20 +1,24 @@
 package com.legacy.con2share.con2share;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,11 +26,20 @@ public class MainActivity extends BaseActivity
     @Inject
     PreferenceHelper preferenceManager;
 
+    @Inject
+    DataManager dataManager;
+    @BindView(R.id.main_text)
+    TextView mainText;
+    @BindView(R.id.textView2)
+    TextView textView2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         App.getAppComponent().inject(this);
+        ButterKnife.setDebug(true);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         preferenceManager.setKey("Good day today!");
@@ -47,8 +60,14 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        TextView tv = (TextView) findViewById(R.id.main_text);
-        tv.setText(preferenceManager.getKey());
+
+        mainText.setText(preferenceManager.toString());
+        textView2.setText(preferenceManager.getKey());
+    }
+
+    @OnClick(R.id.textView2)
+    void onTextClick() {
+        startActivity(new Intent(this, ListActivity.class));
     }
 
     @Override
