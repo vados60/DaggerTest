@@ -9,9 +9,6 @@ import com.legacy.con2share.con2share.injections.PreferenceModule;
 
 import timber.log.Timber;
 
-/**
- * Created by Admin on 24.03.2017.
- */
 
 public class App extends Application {
 

@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import com.legacy.con2share.con2share.PreferenceHelper;
 import com.legacy.con2share.con2share.PreferenceManager;
 import com.legacy.con2share.con2share.injections.annotation.ActivityContext;
-import com.legacy.con2share.con2share.injections.annotation.ApplicationContext;
 
 import javax.inject.Singleton;
 
